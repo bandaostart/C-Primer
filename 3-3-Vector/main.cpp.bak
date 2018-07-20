@@ -50,7 +50,7 @@ int main(void)
     	Dynamic_Arry.push_back("hello");								//依次把数据放到队尾
     }
     
-    //迭代器使用,迭代器适用于string对象和vector对象
+    //迭代器使用
     string s("some ting");                            //迭代器和指针用法类似
     if (s.begin != s.end)                             //确保s非空
     {
@@ -65,7 +65,7 @@ int main(void)
     }
     cout << s <<endl;
     
-    //迭代器类型定义(iterator const_iterator) 
+    //迭代器类型定义(iterator const_iterator)
     vector<int>::iterator it;                         //it 只能读写vector<int>的元素
     string::iterator it2;                             //it2只能读写string对象中的元素
     vector<int>::const_iterator it3;                  //it3只能读元素，不能写元素
