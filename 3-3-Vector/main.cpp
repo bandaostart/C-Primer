@@ -1,5 +1,6 @@
 #include<iostream>
-#include <vector>
+#include<vector>
+#include<string>
 
 /*
 在c++中，vector是一个十分有用的容器
@@ -37,7 +38,7 @@ int main(void)
 
 
     //列表初始值，元素数量使用区分
-    vector<int>     Count_Arry(10);										//定义一个10个长度int数组，默认值初始化0
+    vector<int>     Count_Arry(10);					  //定义一个10个长度int数组，默认值初始化0
     vector<int>     Count_Arry1{10};                  //定义一个1 个长度int数组，默认值初始化10
     vector<int>     Count_Arry2(10, 1);               //定义一个10个长度int数组，每个初始化为1
     vector<int>     Count_Arry3{10, 1};               //定义一个2 个长度int数组，分别初始化为10,1
@@ -52,14 +53,14 @@ int main(void)
     
     //迭代器使用,迭代器适用于string对象和vector对象
     string s("some ting");                            //迭代器和指针用法类似
-    if (s.begin != s.end)                             //确保s非空
+    if (s.begin() != s.end())                             //确保s非空
     {
-    		atuo it = s.begin;                            //it表示s的第一个字符地址
+            auto it = s.begin();                            //it表示s的第一个字符地址
     		*it = toupper(*it);                           //把首字母变成大写
     } 
     cout << s <<endl;
     
-    for (auto it=s.begin; it != s.end() && !isspace(*it), ++it)
+    for (auto it=s.begin(); it != s.end() && !isspace(*it); ++it)
     {
     	*it = toupper(*it);	
     }
@@ -95,12 +96,12 @@ int main(void)
     {
 	    //标准begin和end
 	    int ia[] = {0,1,2,3,4,5,6,7,8,9};
-	    int *beg = begin(ia);
-	    int *end = end(ia);
+        int *temp_beg = begin(ia);
+        int *temp_end = end(ia);
 	    
-	    while ((beg != end) && (*beg > 0))
+        while ((temp_beg != temp_end) && (*temp_beg > 0))
 	    {
-	    	++beg;	
+            ++temp_beg;
 	    }
     }
     
