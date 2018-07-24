@@ -135,7 +135,6 @@ int main()
 
 
     /*关系运算符-----------------------------------------------------------------------------------------*/
-
     vector<int>     vectro_cmp1 = {0,1,2,3,4,5,6};
     vector<int>     vectro_cmp2 = {0,1,2,5};
     vector<int>     vectro_cmp3 = {0,1,2,3,4};
@@ -145,6 +144,7 @@ int main()
     cout << (vectro_cmp2 > vectro_cmp1) << endl;               //true
     cout << (vectro_cmp1 < vectro_cmp3) << endl;               //false
     cout << (vectro_cmp1 == vectro_cmp4) <<endl;               //true
+
 
 
 
