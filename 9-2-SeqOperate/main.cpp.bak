@@ -173,9 +173,6 @@ int main()
     vector<int> vi = {0,1,2,3,4,5,6,7,8,9};
     auto iter = vi.begin();
     
-    //在erase后不必递增迭代器，因为erase返回的迭代器已经指向序列中下一个元素
-    //在insert后，需要递增迭代器两次，insert在给定位置之前插入新元素，然后返回指向新插入元素的迭代器
-    //不要保存end返回的迭代器，在添加或删除后，原来返回的迭代器总会失效
     while (iter != vi.end())
     {
     	if (*iter % 2)
@@ -185,7 +182,7 @@ int main()
     	}
     	else
       {
-      	iter = vi.erase(iter);                     //删除偶数元素，iter指向删除之后的元素
+      	iter = vi.erase(iter);
       }	
     }
     
