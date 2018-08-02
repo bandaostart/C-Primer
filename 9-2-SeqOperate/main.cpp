@@ -137,18 +137,18 @@ int main()
     cout << vector_lev.at(2) << endl;
 
     /*删除元素---------------------------------------------------------------------------------------*/
-    list<int> list_num = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    list<int> list_num2 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     
-    list_num.pop_back();
-    list_num.pop_front();
+    list_num2.pop_back();
+    list_num2.pop_front();
     
-    auto list_it  = list_num.begin();
-    while(list_it != list_num.end())
+    auto list_it  = list_num2.begin();
+    while(list_it != list_num2.end())
     {
     	if (*list_it % 2)
       {
       	//删除单个元素
-      	list_it = list_num.erase(list_it);
+        list_it = list_num2.erase(list_it);
       }
       else
       {
@@ -156,9 +156,9 @@ int main()
       }	
     }
     //删除指定个数元素
-    list_num.erase(list_num.begin(), ++list_num.begin());
+    list_num2.erase(list_num2.begin(), ++list_num2.begin());
     //清空元素
-    list_num.clear();
+    list_num2.clear();
     
     
     /*改变容器大小------------------------------------------------------------------------------------*/
@@ -173,6 +173,7 @@ int main()
     vector<int> vi = {0,1,2,3,4,5,6,7,8,9};
     auto iter = vi.begin();
     
+
     //在erase后不必递增迭代器，因为erase返回的迭代器已经指向序列中下一个元素
     //在insert后，需要递增迭代器两次，insert在给定位置之前插入新元素，然后返回指向新插入元素的迭代器
     //不要保存end返回的迭代器，在添加或删除后，原来返回的迭代器总会失效
@@ -180,13 +181,13 @@ int main()
     {
     	if (*iter % 2)
     	{
-    		iter = iter.insert(iter, *iter);           //复制当前元素
-    		iter += 2;                                 //向前移动迭代器，跳过当前元素及插入之前的元素                      
+            iter = vi.insert(iter, *iter);           //复制当前元素
+            iter += 2;                               //向前移动迭代器，跳过当前元素及插入之前的元素
     	}
     	else
-      {
-      	iter = vi.erase(iter);                     //删除偶数元素，iter指向删除之后的元素
-      }	
+        {
+            iter = vi.erase(iter);                  //删除偶数元素，iter指向删除之后的元素
+        }
     }
     
     
