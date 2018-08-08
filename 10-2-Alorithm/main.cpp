@@ -4,6 +4,7 @@
 #include <numeric>
 #include <vector>
 #include <list>
+#include <string>
 
 /*
 算法：算法不会执行容器操作，因此他们自身不能改变容器大小
@@ -19,9 +20,23 @@
 4，copy：拷贝函数，拷贝的目的序列至少要和输入序列一样多的元素
   replace：替换函数
 
+5，重新排序算法
+  sort： 排序
+  unique：消除相同元素，仅能比较相邻元素
+6，相排序算法，添加函数
+  相算法添加的参数叫谓词
 */
 
+
+
+
 using namespace std;
+bool is_shorted(const string &s1, const string &s2)
+{
+    return s1.size() < s2.size();
+}
+
+
 int main(void)
 {
     /*Find----------------------------------------------------------------------------------------------*/
@@ -94,6 +109,44 @@ int main(void)
     replace(begin(a1), end(a1), 8, 80);
 
 
+    /*sort或unique排序---------------------------------------------------------------------------*/
+    vector<string> string_words = {"My", "name", "is", "bandaostart", "My", "age", "is", "28"};
+
+    //sort排序
+    sort(string_words.begin(), string_words.end());
+    auto string_words_beg = string_words.begin();
+    while (string_words_beg != string_words.end())
+    {
+        cout << *string_words_beg++ << " ";
+    }
+    cout << endl;
+
+    //unique去掉重复，因为算法函数不能执行容器操作，需要使用容器操作函数来执行真正的删除
+    //返回重复元素迭代器地址,unique仅能比较相邻两个元素是否相同
+    auto unique_beg = unique(string_words.begin(), string_words.end());
+    string_words_beg = string_words.begin();
+    while (string_words_beg != string_words.end())
+    {
+        cout << *string_words_beg++ << " ";
+    }
+    cout << endl;
+    string_words.erase(unique_beg, string_words.end());
+    string_words_beg = string_words.begin();
+    while (string_words_beg != string_words.end())
+    {
+        cout << *string_words_beg++ << " ";
+    }
+    cout << endl;
+
+
+    /*重载算法函数------------------------------------------------------------------------------*/
+    //is_shorted为重载过的函数
+    sort(string_words.begin(), string_words.end(), is_shorted);
+    for(const auto &s : string_words)
+    {
+        cout << s << " ";
+    }
+    cout << endl;
 
     return 0;
 }
